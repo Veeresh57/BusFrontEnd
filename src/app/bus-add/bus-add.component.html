@@ -1,0 +1,48 @@
+<br>
+<div class="formcontent">
+    <h3 style="margin-left: 120px;">Add New Bus</h3> <br>
+  <form #AddbusForm='ngForm' (ngSubmit)='saveBus(Bus)'>
+    <div>
+        <label for='BusName'>Bus Name</label>
+        <input class="form-control" type='text' id='BusName' name='BusName' required 
+          [(ngModel)]='Bus.BusName' #BusNamecontrol='ngModel'/>
+    </div>
+    <div *ngIf="BusNamecontrol.touched && BusNamecontrol.invalid">
+      <span class="help-block alert-danger" *ngIf="BusNamecontrol.touched && BusNamecontrol.invalid">
+         <p style="color: red;"> *Required </p>
+      </span>
+    </div>
+    <br>
+    <div>
+        <label for='Start'>Place Of Start</label>
+        <input class="form-control" type='text' id='Start' name='Start' required 
+          [(ngModel)]='Bus.Start' #Startcontrol='ngModel'/>
+    </div>
+    <div *ngIf="Startcontrol.touched && Startcontrol.invalid">
+      <span class="help-block alert-danger" *ngIf="Startcontrol.touched && Startcontrol.invalid">
+         <p style="color: red;"> *Required </p>
+      </span>
+  </div>
+  <br>
+    <div>
+        <label for='Destination'>Destination</label>
+        <input class="form-control" type='text' id='Destination' name='Destination' required 
+          [(ngModel)]='Bus.Destination' #BusNamecontrol='ngModel'/>
+    </div><br>
+    <div>
+        <label for='DateOfJourney'>DateOfJourney</label>
+        <input class="form-control" id='DateOfJourney' type="date" name='DateOfJourney' required [(ngModel)]="Bus.DateOfJourney" #DOJcontrol='ngModel' min="2021-04-05"/>
+    </div><br>
+    <div>
+        <label for='Availability'>Seat Availability</label>
+        <input class="form-control" type='number' id='Availability' name='Availability' required 
+          [(ngModel)]='Bus.Availability' #availabilitycontrol='ngModel'/>
+    </div>
+     <br>
+     <div>
+        <button class="button"  type='submit' style="margin-left: 180px;" [disabled]='AddbusForm.invalid'>Add Bus</button>
+        <br/>
+     </div>
+  </form>
+</div>
+

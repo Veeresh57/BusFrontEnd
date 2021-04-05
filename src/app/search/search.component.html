@@ -1,0 +1,68 @@
+<body>
+  <div class="sidenav">
+    <a><img src="../../assets/login.png" alt="user" style="width: 5%;margin-right: 15px;">{{EmailId}}</a><br><br>
+    <a [routerLink]="['/search/',this.CustomerId]">Search</a>
+    <p style="color: white;">--------------------------------------------------------</p>
+    <a [routerLink]="['/viewBookings/',this.CustomerId]">View My Bookings</a>
+    <p style="color: white;">--------------------------------------------------------</p>
+    <a [routerLink]="['/viewBookings/',this.CustomerId]">Cancel</a>
+    <p style="color: white;">--------------------------------------------------------</p>
+    <a [routerLink]="['/logout']">Logout</a>
+  </div>
+<div class="formcontent">
+  <marquee direction = "right" style="margin-left: -365px;margin-right: -343px;background-color: crimson;color:lightyellow;">Grab Your One Time Offer !!! Use  <strong>TRAVEL50</strong>  to get 50% discount on your first booking </marquee>
+    <h3 style="margin-left: 120px;">Search For Buses</h3>
+    <br>
+  <form #SearchbusForm='ngForm' (ngSubmit)='SearchBus()'>
+    <div>
+        <label for='Start'><strong>Place Of Start</strong></label>
+        <input class="form-control" type='text' id='Start' name='Start' placeholder="From" required 
+          [(ngModel)]='Start' #Startcontrol='ngModel'/>
+    </div>
+    <div *ngIf="Startcontrol.touched && Startcontrol.invalid">
+      <span class="help-block alert-danger" *ngIf="Startcontrol.touched && Startcontrol.invalid">
+         <p style="color: red;"> *Required </p>
+      </span>
+  </div><br><br>
+    <div>
+        <label for='Destination'><strong>Destination</strong></label>
+        <input class="form-control" type='text' id='Destination' name='Destination' placeholder="To" required 
+          [(ngModel)]='Destination' #Destcontrol='ngModel'/>
+    </div>
+    <div *ngIf="Destcontrol.touched && Destcontrol.invalid">
+      <span class="help-block alert-danger" *ngIf="Destcontrol.touched && Destcontrol.invalid">
+         <p style="color: red;"> *Required </p>
+      </span>
+    </div><br><br>
+    <div>
+        <label for='DateOfJourney'><strong>Date Of Journey</strong></label>
+        <input class="form-control" id='DateOfJourney' type='date' name='DateOfJourney' placeholder="Journey Date" required [(ngModel)]="DateOfJourney" #DOJcontrol='ngModel' min="2021-04-05"/>
+    </div>
+    <div *ngIf="DOJcontrol.touched && DOJcontrol.invalid">
+      <span class="help-block alert-danger" *ngIf="DOJcontrol.touched && DOJcontrol.invalid">
+         <p style="color: red;"> *Required </p>
+      </span>
+    </div>
+    <br><br>
+     <div>
+        <button class="button"  type='submit' style="margin-left: 180px;" [disabled]='SearchbusForm.invalid'>Search</button>
+        <br/>
+     </div>
+  </form>
+  <div *ngIf="Bus">
+  <table class="table">
+      <tr *ngFor="let s of Bus">
+          <td><strong>{{s.BusId}}</strong></td>
+          <td><strong>{{s.BusName}}</strong><br>{{s.Start}}-{{s.Destination}}</td>
+          <td>{{s.DateOfJourney|date:'dd-MM-yyyy'}}</td>
+          <td>{{s.Availability}}</td>
+          <td><button class="button"><a [routerLink]="['/book/',this.CustomerId,s.BusId]" style="text-decoration:none" class="btn btn-danger btn-sm float-right">Book</a></button></td>
+        </tr>
+  </table>
+  </div>
+   <!-- <div *ngIf="Bus?.length == 0">
+    <p style="font-size: large;color: brown;background-color: burlywood;">No Buses Available. Please Do Try for a different route</p>
+  </div>
+</div> -->
+</div>
+</body>

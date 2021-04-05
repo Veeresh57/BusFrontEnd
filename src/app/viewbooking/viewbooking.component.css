@@ -1,0 +1,135 @@
+.c1{
+  width:110%;
+  margin-left:-205px;
+  margin-top:65px;
+  background-color: lightpink;
+}
+
+table {
+font-family: arial, sans-serif;
+font-size: 14px;
+border-collapse: collapse;
+width: 106%;
+margin-right: 125px;
+margin-top: -450px;
+margin-left: -70px;
+}
+td{
+ 
+text-align: center;
+padding: 8px;
+width: 60px;
+background-color:rgb(250, 234, 210);
+}
+
+th {
+border: 1px solid #dddddd;
+text-align: center;
+padding: 8px;
+width: 60px;
+background-color:rgb(211, 112, 99);
+}
+
+a{
+color: lightyellow;
+text-decoration: none;
+}
+
+td:nth-child(even) {
+background-color:rgb(223, 183, 171);
+}
+
+.button {
+background-color: lightsalmon;
+border: none;
+color: white;
+padding: 10px 8px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+margin-left: 1150px;
+margin-top: 50px;
+margin-bottom: 20px;
+} 
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}
+.sidenav {
+  height: 100%;
+  width: 270px;
+  position: fixed;
+  margin-top: 80px;
+  margin-left: 15px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: -10px;
+  margin-bottom: 10px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.unavail{
+  background-color:green;
+}
+.booked{
+  background-color:red;
+}
+
+

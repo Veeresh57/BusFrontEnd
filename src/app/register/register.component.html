@@ -1,0 +1,71 @@
+<img src="../../assets/reg.jpg" alt="reg" style="margin-left: -150px; margin-top: -600px;margin-bottom: 250px;height: 500px;">
+<div class="formcontent">
+    <h3 style="margin-left: 120px;">Create Your Account</h3> <br>
+    <br>
+  <form #CustomerDetailsForm='ngForm' (ngSubmit)='saveCustomerDetails(Customer)'>
+      <div>
+          <label for='EmailId'>EmailId</label>
+          <input class="form-control" type='text' id='EmailId' name='EmailId' required [(ngModel)]='Customer.EmailId' 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  #Emailcontrol='ngModel'/>
+      </div>
+      <div *ngIf="Emailcontrol.touched && Emailcontrol.pristine">
+        <span class="help-block alert-danger" *ngIf="Emailcontrol.touched && Emailcontrol.pristine">
+           <p style="color: red;"> Email is Required</p>
+        </span>
+    </div>
+    <div *ngIf="Emailcontrol.touched && Emailcontrol.invalid">
+        <span class="help-bock alert-danger" *ngIf="Emailcontrol.touched && Emailcontrol.invalid">
+          <p style="color: red;"> Enter Valid Email Id </p>
+        </span>
+    </div>
+      <br>
+      <div>
+          <label for='MobileNumber' style="margin-right: -50px;">MobileNumber</label>
+          <input class="form-control" type='number' id='MobileNumber'  pattern="[0-9]{10}" name='MobileNumber' required 
+            [(ngModel)]='Customer.MobileNumber' #MobileNumbercontrol='ngModel'/>
+      </div>
+      <div *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.pristine">
+        <span class="help-block alert-danger" *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.pristine">
+           <p style="color: red;"> MobileNumber is Required</p>
+        </span>
+      </div>
+      <div *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.invalid">
+        <span class="help-bock alert-danger" *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.invalid">
+          <p style="color: red;"> Enter Valid MobileNumber </p>
+        </span>
+     </div>
+      <br>
+      <div>
+          <label for='DateOfBirth'style="margin-right: -30px;">DateOfBirth</label>
+          <input class="form-control" type='date' id='DateOfBirth' name='DateOfBirth' max="2003-04-05" required [(ngModel)]='Customer.DateOfBirth' 
+          #DOBcontrol='ngModel'/>
+      </div>
+      <div *ngIf="DOBcontrol.touched && DOBcontrol.pristine">
+        <span class="help-block alert-danger" *ngIf="DOBcontrol.touched && DOBcontrol.pristine">
+           <p style="color: red;"> Date Of Birth is Required</p>
+        </span>
+    </div>
+      <br>
+      <div>
+          <label for='Password'style="margin-right: -20px;">Password</label>
+          <input class="form-control"  type="password" id="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            name="Password" [(ngModel)]="Customer.Password" #passcontrol='ngModel'/>    
+     </div>
+     <div *ngIf="passcontrol.touched && passcontrol.pristine">
+      <span class="help-block alert-danger" *ngIf="passcontrol.touched && passcontrol.pristine">
+         <p style="color: red;"> Password is Required</p>
+      </span>
+    </div>
+    <div *ngIf="passcontrol.touched && passcontrol.invalid">
+      <span class="help-bock alert-danger" *ngIf="passcontrol.touched && passcontrol.invalid">
+        <p style="color: red;"> Password should be of 8 characters containing atleast one uppercase letter,one lowercase letter, symbol and number </p>
+      </span>
+   </div>
+     <br>
+     <div>
+        <button class="button"  type='submit' style="margin-left: 170px;" [disabled]='CustomerDetailsForm.invalid'>Create</button>
+        <br/>
+     </div>
+  </form>
+</div>
+

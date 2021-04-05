@@ -1,0 +1,14 @@
+<div class="c1">
+<h2 style="margin-left:95px">Cancel Ticket</h2> 
+    <form #CancelForm='ngForm' (ngSubmit)='onCancel(CustomerId,TicketId)'>
+        Your Ticket with TicketId:<strong>{{TicketId}}</strong> Has been Cancelled!!!<br><br><br> 
+    </form>
+    <a style="margin-left:140px;" [routerLink]="['/search/',this.CustomerId]"><button class="button" type="submit">Back</button></a>
+</div>
+
+<div class="c">
+    <div style="margin-left: -270px;width: 55%;" ><img src="../../assets/can.jpg" alt="Cancel" style="width: 480px;height: 200px;"></div>
+    <div style="margin-left: 1px;width: 75%;"><img src="../../assets/can2.jpg" alt="Cancel" style="width: 480px;height: 200px;"></div>
+    <div style="margin-left: -110px;width: 65%;"><img src="../../assets/can3.jpg" alt="Cancel" style="width: 480px;height: 200px;"></div>
+</div>
+

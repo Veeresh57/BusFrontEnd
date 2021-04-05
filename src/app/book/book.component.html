@@ -1,0 +1,109 @@
+<div class="sidenav">
+  <a><img src="../../assets/login.png" alt="user" style="width: 5%;margin-right: 15px;">{{book.EmailId}}</a><br><br>
+  <a [routerLink]="['/search/',book.CustomerId]">Search</a>
+  <p style="color: white;">--------------------------------------------------------</p>
+  <a [routerLink]="['/viewBookings/',book.CustomerId]">View My Bookings</a>
+  <p style="color: white;">--------------------------------------------------------</p>
+  <a [routerLink]="['/viewBookings/',book.CustomerId]">Cancel</a>
+  <p style="color: white;">--------------------------------------------------------</p>
+  <a [routerLink]="['/logout']">Logout</a>
+</div>
+<div class="formcontent">
+    <h2 style="margin-left: 140px;">Book Ticket</h2><br>
+  
+  <form #BookingForm='ngForm' (ngSubmit)='savebooking(book)'>
+    <div>
+        <label for='CustomerId'><b>Enter Your Id</b></label>
+        <input class="form-control" type='number' id='CustomerId' name='CustomerId' required disabled
+          [(ngModel)]='book.CustomerId' #CIdcontrol='ngModel'/>
+    </div><br>
+    <div *ngIf="CIdcontrol.touched && CIdcontrol.pristine">
+      <span class="help-block alert-danger" *ngIf="CIdcontrol.touched && CIdcontrol.pristine">
+         <p style="color: red;"> Customer Id is Required</p>
+      </span>
+  </div><br>
+      <div>
+          <label for='EmailId'style="margin-right: 45px;"><b>EmailId</b></label>
+          <input class="form-control" type='text' id='EmailId' name='EmailId' required [(ngModel)]='book.EmailId' 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  #Emailcontrol='ngModel'/>
+      </div>
+      <div *ngIf="Emailcontrol.touched && Emailcontrol.pristine">
+        <span class="help-block alert-danger" *ngIf="Emailcontrol.touched && Emailcontrol.pristine">
+           <p style="color: red;"> Email is Required</p>
+        </span>
+    </div>
+    <div *ngIf="Emailcontrol.touched && Emailcontrol.invalid">
+        <span class="help-bock alert-danger" *ngIf="Emailcontrol.touched && Emailcontrol.invalid">
+          <p style="color: red;"> Enter Valid Email Id </p>
+        </span>
+    </div>
+      <br><br>
+      <div>
+          <label for='MobileNumber'><b>MobileNumber</b></label>
+          <input class="form-control" type='number' id='MobileNumber'   pattern="[0-9]{10}" name='MobileNumber' required 
+            [(ngModel)]='book.MobileNumber' #MobileNumbercontrol='ngModel'/>
+      </div>
+      <div *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.pristine">
+        <span class="help-block alert-danger" *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.pristine">
+           <p style="color: red;"> MobileNumber is Required</p>
+        </span>
+      </div>
+      <div *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.invalid">
+        <span class="help-bock alert-danger" *ngIf="MobileNumbercontrol.touched && MobileNumbercontrol.invalid">
+          <p style="color: red;"> Enter Valid MobileNumber </p>
+        </span>
+     </div>
+      <br><br>
+      <div>
+        <label for='BusName' style="margin-right: 30px;"><b>Bus Name</b></label>
+        <input class="form-control" type='text' id='BusName' name='BusName' required disabled
+          [(ngModel)]='book.BusName' #BusNamecontrol='ngModel'/>
+    </div><br><br>
+    <div>
+        <label for='Start'style="margin-right: 10px;"><b>Place Of Start</b></label>
+        <input class="form-control" type='text' id='Start' name='Start' required disabled
+          [(ngModel)]='book.Start' #BusNamecontrol='ngModel'/>
+    </div><br><br>
+    <div>
+        <label for='Destination' style="margin-right: 30px;"><b>Destination</b></label>
+        <input class="form-control" type='text' id='Destination' name='Destination' required disabled
+          [(ngModel)]='book.Destination' #BusNamecontrol='ngModel'/>
+    </div><br><br>
+    <div>
+        <label for='DateOfJourney'><b>DateOfJourney</b></label>
+        <input class="form-control" type='date' id='DateOfJourney' name='DateOfJourney' required disabled [ngModel]="Bus.DateOfJourney|date:'yyyy-MM-dd'"(ngModelChange)="Bus.DateOfJourney=$event" type="data" 
+        #DOJcontrol='ngModel'/>
+    </div><br><br>
+    <div>
+      <label for='Availability'><b>Availability</b></label>
+      <input class="form-control" type='number' id='Availability' name='Availability' value="{{SeatCount}}" [(ngModel)]="SeatCount"  disabled/>
+    </div>
+    <br><br>
+    <div>
+      <label for='Seats' style="margin-right: 60px;"><b>Seats</b></label>
+      <input class="form-control" type='number' id='Seats' name='Seats' required 
+        [(ngModel)]='book.Seats' #seatscontrol='ngModel'/>
+    </div>
+      <span class="help-block alert-danger" *ngIf="book.Seats>SeatCount">
+         <p style="color: red;background-color: pink;"> Only {{SeatCount}} seats are Available</p>
+      </span>
+    <div *ngIf="seatscontrol.touched && seatscontrol.pristine">
+      <span class="help-block alert-danger" *ngIf="seatscontrol.touched && seatscontrol.pristine">
+         <p style="color: red;background-color: pink;"> Enter your number of seats</p>
+      </span>
+    </div>
+    <div><br><br>
+      <label for='Bookingstatus' style="margin-right: -20px;"><b>Booking Status</b></label>
+      <input class="form-control" type='text' id='Bookingstatus' name='Bookingstatus' value='OnProgress' placeholder="On Progress" [(ngModel)]="book.Bookingstatus" #bookstatcontrol='ngModel'/>
+    </div><br><br>
+    <div>
+      <label for='Travelstatus'><b>Travel Status</b></label>
+      <input class="form-control" type='text' id='Travelstatus' value="No" name='Travelstatus'  placeholder="No" [(ngModel)]="book.Travelstatus" #travelstatcontrol='ngModel'/>
+    </div>
+     <br><br>
+     <div>
+       <button class="button"  type='submit' style="margin-left: 190px;margin-top: 20px;" [disabled]='BookingForm.invalid'>Book</button>
+        <br/>
+     </div>
+  </form>
+</div>

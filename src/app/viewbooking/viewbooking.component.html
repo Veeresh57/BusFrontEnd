@@ -1,0 +1,58 @@
+<body>
+<div class="sidenav">
+    <a><img src="../../assets/login.png" alt="user" style="width: 5%;margin-right: 15px;">{{EmailId}}</a><br><br>
+    <a [routerLink]="['/search/',this.CustomerId]">Search</a>
+    <p style="color: white;">--------------------------------------------------</p>
+    <a [routerLink]="['/viewBookings/',this.CustomerId]">View My Bookings</a>
+    <p style="color: white;">--------------------------------------------------</p>
+    <a [routerLink]="['/viewBookings/',this.CustomerId]">Cancel</a>
+    <p style="color: white;">--------------------------------------------------</p>
+    <a [routerLink]="['/logout']">Logout</a>
+  </div>
+<div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div *ngIf="booking">  
+  <table>
+      <tr>
+          <th>Ticket Id</th>
+          <th>Customer Id</th>
+          <th>EmailId</th>
+          <th>Mobile Number</th>
+          <th>Bus Name</th>
+          <th>Place Of Start</th>
+          <th>Destination</th>
+          <th>Date Of Journey</th>
+          <th>Number of Seats</th>
+          <th>Status</th>
+          <th></th>
+      </tr>
+      <tr *ngFor="let b of booking">
+          <td>{{b.TicketId}}</td>
+          <td>{{b.CustomerId}}</td>
+          <td>{{b.EmailId}}</td>
+          <td>{{b.MobileNumber}}</td>
+          <td>{{b.BusName}}</td>
+          <td>{{b.Start}}</td>
+          <td>{{b.Destination}}</td>
+          <td>{{b.DateOfJourney|date:'yyyy-MM-dd'}}</td>
+          <td>{{b.Seats}}</td>
+          <td>{{b.Bookingstatus}}</td>
+          <td><button class="button" style="margin-left: -10px;margin-top: 20px;"><a [routerLink]="['/cancel/',this.CustomerId,b.TicketId]">Cancel</a></button></td>   
+      </tr>
+  </table>
+    <button class="button" style="margin-left: 500px;margin-top: 50px;margin-right: -150px;"><a [routerLink]="['/search/',this.CustomerId]">Back</a></button>
+</div>
+</div>
+<script>
+    $(function(){
+  $("tr").each(function(){
+    var col_val = $(this).find("td:eq(10)").text();
+    if (col_val == "Unavailable"){
+      $(this).addClass('unavail');  //the selected class colors the row green//
+    } else {
+      $(this).addClass('booked');
+    }
+  });
+});
+</script>
+</body>

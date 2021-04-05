@@ -1,0 +1,80 @@
+  .c1{
+       width:75%;
+       margin-left:-45px;
+       margin-top:-525px;
+       background-color: lightpink;
+  }
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  } 
+    
+  table {
+    font-family: arial, sans-serif;
+    font-size: small;
+    border-collapse: collapse;
+    width: 110%;
+    margin-left: -45px;
+    margin-right: 85px;
+    margin-top: 25px;
+  }
+  
+  td, th {
+    border: 0px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    width: 60px;
+    background-color:lightgoldenrodyellow;
+  }
+  
+  a{
+    color: lightyellow;
+  }
+
+  tr:nth-child(even) {
+    background-color:rgb(214, 217, 231);
+  }
+  
+  .button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  } 
+  
+  .var {
+    position: absolute;
+    left: -250px;
+    top: 125px;
+    background-color:rgba(11, 30, 114, 0.877);
+  }
+  
+  .button2 {
+    margin-left: 1100px;
+    margin-top: -80px;
+    overflow: hidden; 
+    background-color:rgba(11, 30, 114, 0.877);
+    border: none;
+    align-self: center;
+    color: white;
+    /* padding-top: 15px; */
+    padding-left: auto;
+    padding-right: auto;
+    padding-right: -10px;
+    text-align: center;
+    padding-top: auto;
+    padding-bottom: auto;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+ 

@@ -1,0 +1,30 @@
+<div class=c1>
+<h2 style="margin-left:350px;color:red;">Buses Available</h2> 
+<button class="button" style="margin-left: 750px;"><a [routerLink]="['/busadd']" style="text-decoration:none" class="btn btn-danger btn-sm float-right" >Add Bus</a></button>
+<div *ngIf="Bus">
+    <table>
+        <tr>
+            <th>Bus Name</th>
+            <th>Place Of Start</th>
+            <th>Destination</th>
+            <th>Date Of Journey</th>
+            <th>Seat Availability</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let b of Bus">
+            <td>{{b.BusName}}</td>
+            <td>{{b.Start}}</td>
+            <td>{{b.Destination}}</td>
+            <td>{{b.DateOfJourney|date:'yyyy-MM-dd'}}</td>
+            <td>{{b.Availability}}</td>
+            <td><button class="button"><a [routerLink]="['/busedit/',b.BusId]" style="text-decoration:none" class="btn btn-danger btn-sm float-right" >Edit</a></button></td>
+            <td><button class="button"><a [routerLink]="['/busdelete/',b.BusId]" style="text-decoration:none" class="btn btn-danger btn-sm float-right" >Cancel</a></button></td> 
+        </tr>
+    </table>
+</div>  
+</div> 
+<br><br>
+<a [routerLink]="['/logout']" style="margin-left: 380px;margin-top: 120px;"><button class="button" style=" color: white;background-color: red;border: none;padding:10px;padding-right:20px;padding-left: 20px;">logout</button></a>
+
+

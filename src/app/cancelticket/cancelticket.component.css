@@ -1,0 +1,35 @@
+.c{
+    display: flex;
+    margin-top:-130px ;
+    margin-left: -50px;
+}
+
+.c2{
+    background-color: white;
+}
+.c1{
+    width: 480px;
+    height: 90px;
+    padding-left: 100px;
+    padding-right: -10px;
+    margin-top: -518px;
+    margin-bottom: 260px;
+    margin-left: 85px;
+    padding-bottom: 50px;
+    background-color:white;
+    border: none;
+}
+
+.button {
+    color: white;
+    background-color: red;
+    border: white;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: -90px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}

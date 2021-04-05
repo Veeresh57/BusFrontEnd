@@ -1,0 +1,19 @@
+<div class='d1'>
+<h1>Are you Sure?</h1>
+<div *ngIf=Bus>
+    <strong>BusId</strong>:{{Bus.BusId}}<br/>
+    <strong>Bus Name</strong>{{Bus.BusName}}<br>
+    <strong>Start</strong> {{Bus.Start}}<br/>
+    <strong>Destination</strong> {{Bus.Destination}}<br/>
+    <strong>Date Of Journey</strong> {{Bus.DateOfJourney}}<br/>
+    <strong>Availabile Seats</strong> {{Bus.Availability}}
+    <br><br>
+
+    <form #buscancelform=ngForm (ngSubmit)= saveCancel()>
+        <div>
+            <button class="button"  type='submit' style="margin-left: 430px;">Confirm</button>
+            <button class="button"  [routerLink]="['/bus']" style="margin-left: 430px;">Back</button>
+        </div>
+    </form>
+</div>
+</div>

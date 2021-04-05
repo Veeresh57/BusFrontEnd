@@ -1,0 +1,46 @@
+.formcontent { 
+    width: 380px;
+    height: 570px;
+    padding: 10px;
+    padding-left: 150px;
+    padding-right: 200px;
+    margin-top: -580px;
+    margin-bottom: 0px;
+    margin-left: 255px;
+    background-color:gainsboro;
+    border: none;
+}
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid red;
+}
+
+input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid red;
+}
+
+.button {
+    color: white;
+    background-color: red;
+    border: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 53px;
+    cursor: pointer;
+}
+.but{
+    display: flex;
+}

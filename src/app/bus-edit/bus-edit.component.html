@@ -1,0 +1,42 @@
+<br>
+<div class="formcontent">
+    <h3 style="margin-left: 120px;">Edit Bus Details</h3>
+  <form #EditbusForm='ngForm' (ngSubmit)='SaveDetails(Bus)'>
+    <div>
+        <label for='BusId'>Bus ID</label>
+        <input class="form-control" type='text' id='BusId' name='BusId' required disabled
+          [(ngModel)]='Bus.BusId' #BusNamecontrol='ngModel'/>
+    </div><br>
+    <div>
+        <label for='BusName'>Bus Name</label>
+        <input class="form-control" type='text' id='BusName' name='BusName' required 
+          [(ngModel)]='Bus.BusName' #BusNamecontrol='ngModel'/>
+    </div><br>
+    <div>
+        <label for='Start'>Place Of Start</label>
+        <input class="form-control" type='text' id='Start' name='Start' required 
+          [(ngModel)]='Bus.Start' #BusNamecontrol='ngModel'/>
+    </div><br>
+    <div>
+        <label for='Destination'>Destination</label>
+        <input class="form-control" type='text' id='Destination' name='Destination' required 
+          [(ngModel)]='Bus.Destination' #BusNamecontrol='ngModel'/>
+    </div><br>
+    <div>
+        <label for='DateOfJourney'>DateOfJourney</label>
+        <input class="form-control" id='DateOfJourney' name='DateOfJourney' required [ngModel]="Bus.DateOfJourney|date:'yyyy-MM-dd'"(ngModelChange)="Bus.DateOfJourney=$event" type="data" #DOJcontrol='ngModel'/>
+    </div><br>
+    <div>
+        <label for='Availability'>Seat Availability</label>
+        <input class="form-control" type='number' id='Availability' name='Availability' required 
+          [(ngModel)]='Bus.Availability' #availabilitycontrol='ngModel'/>
+    </div>
+     <br><br><br>
+     <div>
+        <button class="button"  type='submit' style="margin-left: 60px;margin-top: -185px;" [disabled]='EditbusForm.invalid'>Save</button>
+        <button class="button"  style="margin-left: 180px;margin-top: -185px;" [routerLink]="['bus']">Back</button>
+        <br/>
+     </div>
+  </form>
+</div>
+

@@ -1,0 +1,46 @@
+<img src="../../assets/log.jpg" alt="reg" style="margin-left: -150px; margin-top: -1000px;margin-bottom: 50px;height: 500px;">
+
+    <div class="formcontent">
+        <h2 style="text-align: center;">User Login</h2> <br><br><br>
+        <form #LoginForm='ngForm' (ngSubmit)='saveLogin(Customer)'>
+        <div>
+            <label for='EmailId' style="margin-left:-100px;position: 100px;"><strong>Email Id</strong></label><br>
+          <input class="form-control" type='text' id='EmailId' name='EmailId' required [(ngModel)]='Customer.EmailId' 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  #Emailcontrol='ngModel'/><br><br>
+        </div>
+        <div *ngIf="Emailcontrol.touched && Emailcontrol.pristine">
+            <span class="help-block alert-danger" *ngIf="Emailcontrol.touched && Emailcontrol.pristine">
+               <p style="color: red;"> Email is Required</p>
+            </span>
+        </div>
+        <div *ngIf="Emailcontrol.touched && Emailcontrol.invalid">
+            <span class="help-bock alert-danger" *ngIf="Emailcontrol.touched && Emailcontrol.invalid">
+              <p style="color: red;"> Enter Valid Email Id </p>
+            </span>
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for='Password'  style="margin-left:-100px;position: 100px;"><strong>Enter Password</strong></label>
+            <input class="form-control" type='password' id='Password' name='Password' required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            [(ngModel)]='Password' #passcontrol='ngModel'/><br><br>
+        </div>
+        <div *ngIf="passcontrol.touched && passcontrol.pristine">
+            <span class="help-block alert-danger" *ngIf="passcontrol.touched && passcontrol.pristine">
+                <p style="color: red;"> Password is Required</p>
+            </span>
+        </div>
+        <div *ngIf="passcontrol.touched && passcontrol.invalid">
+            <span class="help-bock alert-danger" *ngIf="passcontrol.touched && passcontrol.invalid">
+                <p style="color: red;"> Password should be of 8 characters containing atleast one uppercase letter,one lowercase letter, symbol and number </p>
+            </span>
+        </div>
+        <br/>
+        <div class="but" style="margin-top: 20px;margin-left: 70px;">
+            <div><button class="button" type='submit' [disabled]='LoginForm.invalid'>Login</button></div> 
+        <div><a style="margin-left:110px;margin-top: -100px;" [routerLink]="['/']"><button class="button1" type="submit">Back</button></a></div>
+        </div>
+        <br/>
+        </form>
+    <div>
+    

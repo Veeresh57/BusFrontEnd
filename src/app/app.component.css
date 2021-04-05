@@ -1,0 +1,32 @@
+body{
+    /* background-image: url(../assets/bg.jpg); */
+    background-color: gainsboro;
+    padding-top: 700px;
+    padding-left: 350px;
+    margin-top:10px;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: white;
+    text-shadow: white;
+}
+.home{
+    text-align: center;
+    font-family:'Segoe UI';
+    font-style: italic;
+    background-color:crimson;
+    margin-left: -350px;
+    width: 780px;
+    margin-top:-700px;
+    padding-left: 200px;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    padding-right: 505px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    align-content: space-between;
+    position:fixed;
+}
+

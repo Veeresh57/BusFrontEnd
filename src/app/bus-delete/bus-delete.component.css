@@ -1,0 +1,44 @@
+.formcontent { 
+    width: 430px;
+    padding: 20px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-left: 35px;
+    background-color: white;
+    border: none;
+}
+
+.d1{
+   background-color: lightpink;
+   margin-right: 400px;
+   margin-top:-500px;
+   margin-left: 70px;
+   padding-left: 30px;
+   padding-top: 10px;
+   padding-right: 5px;
+   border-radius: 10px;
+}
+
+input[type=text],
+input[type=password]{
+    background-color: #ddd;
+    outline: none;
+    border-color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 142px;
+    margin-bottom: -1000px;
+}
+
+.button {
+    color: white;
+    background-color: red;
+    border: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 53px;
+    cursor: pointer;
+}
